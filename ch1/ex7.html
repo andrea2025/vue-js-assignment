@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+        <div id="app">
+                <input type="text" v-model="inputText">
+                <p>inputText: {{ inputText }}</p>
+                <label><input type="radio" v-model="value" value="one"> One</label>
+                 <label><input type="radio" v-model="value" value="two"> Two</label>
+                 <label><input type="radio" v-model="value" value="three"> Three</label>
+                 <p>The value is {{ value }}</p>
+                
+               </div>
+               <script>
+                new Vue({
+                el: '#app',
+                data: {
+                inputText: '',
+                value: ''
+                }
+                });
+               </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ seconds }} seconds have elapsed since you opened the page.</p>
+        <li v-for="dog in dogs">{{ dog }}</li>
+       </div>
+       <script>
+            const vm = new Vue({
+                data: {
+                dogs: ['Rex', 'Rover', 'Henrietta', 'Alan']
+                }
+               });
+
+new Vue({
+    el: '#app',
+    data: {
+    seconds: 0
+    },
+    created() {
+    setInterval(() => {
+    this.seconds++;
+    }, 1000);
+    }
+    });
+      
+ </script>
+</body>
+</html>

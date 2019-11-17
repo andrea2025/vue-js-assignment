@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+        <li v-for="dog in dogs">{{ dog }}</li>
+        </ul>
+
+        <div>
+            <ul>
+                <li v-for="(rent, city) in averageRent">
+                The average rent in {{ city }} is ${{ rent }}</li>
+                </ul>
+        </div>
+
+        <ul>
+            <li v-for="n in 10">{{ n }}</li>
+            </ul>
+       </div>
+       <script>
+        new Vue({
+        el: '#app',
+        data: {
+        dogs: ['Rex', 'Rover', 'Henrietta', 'Alan'],
+        averageRent: {
+            london: 1650,
+            paris: 1730,
+            NYC: 3680
+            }
+        }
+        });
+       </script>
+</body>
+</html>

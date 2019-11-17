@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+        <div id="app">
+                <p>The sum of the positive numbers is {{ getPositiveNumbersSum() }}</p>
+                <p>Sum of numbers: {{ numberTotal }}</p>
+            </div>
+               <script>
+                new Vue({
+                el: '#app',
+                data: {
+                numbers: [-5, 0, 2, -1, 1, 0.5],
+                numbers: [5, 8, 3]
+                },
+                methods: {
+                getPositiveNumbers() {
+                // Note that we're now using this.numbers
+                // to refer directly to the data object.
+                return this.numbers.filter((number) => number >= 0);
+                },
+                getPositiveNumbersSum() {
+                return this.getPositiveNumbers().reduce((sum, val) => sum + val);
+                }
+                },
+                computed: {
+                    numberTotal: {
+                    get() {
+                    return numbers.reduce((sum, val) => sum + val);
+                    },
+                    set(newValue) {
+                    const oldValue = this.numberTotal;
+                    const difference = newValue - oldValue;
+                    this.numbers.push(difference)
+                    }
+
+                    }
+                }
+                
+                });
+               </script>
+</body>
+</html>

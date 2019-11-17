@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+        <div id="app">
+                <p>Product one cost: {{ productOneCost | formatCost }}</p>
+                <p>Product two cost: {{ productTwoCost | formatCost }}</p>
+                <p>Product three cost: {{ productThreeCost | formatCost }}</p>
+                <input type="text" v-bind:value="productCost | formatCost('$')">
+
+               </div>
+               <script>
+                new Vue({
+                el: '#app',
+                data: {
+                productOneCost: 998,
+                productTwoCost: 2399,
+                productThreeCost: 5300
+                },
+                filters: {
+                formatCost(value) {
+                return '$' + (value / 100).toFixed(2);
+                }
+                }
+                });
+                Vue.filter('formatCost', function (value, symbol) {
+                    return symbol + (val / 100).toFixed(2);
+                   });
+               </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+        <div id="app">
+                <counter v-on:count="handleCount"></counter>
+                <p>clicks = {{ clicks }}</p>
+                <custom-button type="submit">Click me!</custom-button>
+               </div>
+               <script>
+                    const CustomButton = {
+                        template: '<button type="button"><slot></slot></button>'
+                        };
+                new Vue({
+                el: '#app',
+                components: {
+                    CustomButton
+                    },
+                data: {
+                clicks: 0
+                },
+                methods: {
+                handleCount(clicks) {
+                this.clicks = clicks;
+                }
+                },
+                components: {
+                Counter
+                }
+                });
+               </script>
+</body>
+</html>
